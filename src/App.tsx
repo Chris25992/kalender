@@ -55,8 +55,8 @@ export default function App() {
   const count = new Date(month.getFullYear(),month.getMonth()+1,0).getDate()
   const cells = Array.from({length:Math.ceil((offset+count)/7)*7},(_,i) => new Date(month.getFullYear(),month.getMonth(),i-offset+1))
   return <div className="app-shell">
-    <header className="app-header"><a className="brand" href="./"><span className="brand-icon" aria-hidden="true">▦</span> tagwerk <span className="brand-tag">DEIN KALENDER</span></a><span className="local-badge"><i/> Lokal gespeichert</span></header>
-    <main><div className="intro"><div><p className="eyebrow">MEHR RAUM FÜR DEINEN TAG</p><h1>Deine Zeit. Dein Überblick.</h1><p>Alles, was ansteht – an einem Ort.</p></div><button className="primary" onClick={add}>＋ Termin hinzufügen</button></div>
+    <header className="app-header"><a className="brand" href="./"><span className="brand-icon" aria-hidden="true">▦</span> Kalender <span className="brand-tag">DEIN KALENDER</span></a><span className="local-badge"><i/> Lokal gespeichert</span></header>
+    <main><div className="intro"><div><p className="eyebrow">MEHR RAUM FÜR DEINEN TAG</p><h1>aktuelles</h1><p>Alles, was ansteht – an einem Ort.</p></div><button className="primary" onClick={add}>＋ Termin hinzufügen</button></div>
       {error && <p className="error" role="alert">{error}</p>}
       <div className="workspace"><section className="calendar panel" aria-label="Monatskalender">
         <div className="calendar-toolbar"><div><h2 aria-live="polite">{month.toLocaleDateString('de-DE',{month:'long',year:'numeric'})}</h2><p>{monthly.length} {monthly.length === 1 ? 'Termin' : 'Termine'} in diesem Monat</p></div><div className="navigation"><button className="today-button" onClick={goToday}>Heute</button><button className="arrow" aria-label="Vorheriger Monat" onClick={() => move(-1)}>‹</button><button className="arrow" aria-label="Nächster Monat" onClick={() => move(1)}>›</button></div></div>
